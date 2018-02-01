@@ -1,4 +1,5 @@
-﻿using Foundation;
+﻿using System;
+using Foundation;
 using UIKit;
 
 namespace XamarinIosNotificationDemo
@@ -17,10 +18,57 @@ namespace XamarinIosNotificationDemo
             set;
         }
 
+        public override void ReceivedLocalNotification(UIApplication application, UILocalNotification notification)
+        {
+            if (UIDevice.CurrentDevice.CheckSystemVersion(10, 0))
+            {
+
+            }
+            else
+            {
+                Console.WriteLine("iOS 9-, Invoked from ReceivedLocalNotification()...");
+                HandleLocalNotificationPriorIos10(notification);
+            }
+        }
+
+        private void HandleLocalNotificationPriorIos10(UILocalNotification notification)
+        {
+            var okayAlterController = UIAlertController.Create(notification.AlertAction, notification.AlertBody, UIAlertControllerStyle.Alert);
+            okayAlterController.AddAction(UIAlertAction.Create("OK", UIAlertActionStyle.Default, null));
+
+            var topController = Window.RootViewController;
+            while (topController.PresentedViewController != null)
+            {
+                topController = topController.PresentedViewController;
+            }
+            topController.PresentViewController(okayAlterController, true, null);
+
+            //Window.RootViewController.PresentViewController(okayAlterController, true, null);
+
+            //remember to clear badge
+            UIApplication.SharedApplication.ApplicationIconBadgeNumber = 0;
+        }
+
         public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
         {
             // Override point for customization after application launch.
             // If not required for your application you can safely delete this method
+
+            // check for a notification
+            if (launchOptions != null)
+            {
+                // check for a local notification
+                if (launchOptions.ContainsKey(UIApplication.LaunchOptionsLocalNotificationKey))
+                {
+                    if (launchOptions[UIApplication.LaunchOptionsLocalNotificationKey] is UILocalNotification localNotification)
+                    {
+                        Console.WriteLine("App is started from Local Notification!!!");
+
+                        //can't do this because using storyboard as main start UI
+                        HandleLocalNotificationPriorIos10(localNotification);
+                    }
+                }
+            }
 
             return true;
         }
