@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2027
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XamarinIosNotificationDemo", "XamarinIosNotificationDemo\XamarinIosNotificationDemo.csproj", "{F348763C-61D7-4057-9526-F5530A360B61}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|iPhone = Debug|iPhone
+		Debug|iPhoneSimulator = Debug|iPhoneSimulator
+		Release|iPhone = Release|iPhone
+		Release|iPhoneSimulator = Release|iPhoneSimulator
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F348763C-61D7-4057-9526-F5530A360B61}.Debug|iPhone.ActiveCfg = Debug|iPhone
+		{F348763C-61D7-4057-9526-F5530A360B61}.Debug|iPhone.Build.0 = Debug|iPhone
+		{F348763C-61D7-4057-9526-F5530A360B61}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
+		{F348763C-61D7-4057-9526-F5530A360B61}.Debug|iPhoneSimulator.Build.0 = Debug|iPhoneSimulator
+		{F348763C-61D7-4057-9526-F5530A360B61}.Release|iPhone.ActiveCfg = Release|iPhone
+		{F348763C-61D7-4057-9526-F5530A360B61}.Release|iPhone.Build.0 = Release|iPhone
+		{F348763C-61D7-4057-9526-F5530A360B61}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
+		{F348763C-61D7-4057-9526-F5530A360B61}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CCE21B25-A1FC-4ED8-BD85-AFE053ACD3F7}
+	EndGlobalSection
+EndGlobal
